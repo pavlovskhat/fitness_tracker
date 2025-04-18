@@ -1,0 +1,18 @@
+{
+  "fitness_tracker": ["fitness_tracker.interface.fitness_tracker", "FitnessTracker"],
+  "exercise_view": ["fitness_tracker.interface.exercise_view", "ExerciseView"],
+  "category_view": ["fitness_tracker.interface.category_view", "CategoryView"],
+  "routine_view": ["fitness_tracker.interface.routine_view", "RoutineView"],
+  "goal_view": ["fitness_tracker.interface.goal_view", "GoalView"],
+  "exercise_ctrl": ["fitness_tracker.controllers.exercise_ctrl", "ExerciseCtrl"],
+  "category_ctrl": ["fitness_tracker.controllers.category_ctrl", "CategoryCtrl"],
+  "routine_ctrl": ["fitness_tracker.controllers.routine_ctrl", "RoutineCtrl"],
+  "goal_ctrl": ["fitness_tracker.controllers.goal_ctrl", "GoalCtrl"],
+  "database": ["fitness_tracker.database.database", "Database"],
+  "category": ["fitness_tracker.models.category", "Category"],
+  "exercise": ["fitness_tracker.models.exercise", "Exercise"],
+  "routine": ["fitness_tracker.models.routine", "Routine"],
+  "goal": ["fitness_tracker.models.goal", "Goal"],
+  "utilities": ["fitness_tracker.utilities.utilities", "Utilities"],
+  "constants": ["fitness_tracker.settings.settings", "Constants"]
+}

@@ -1,0 +1,3 @@
+
+class GoalCtrl:
+	pass
