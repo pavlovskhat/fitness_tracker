@@ -1,14 +1,14 @@
 """
 Category user interface.
 """
+from tabulate import tabulate
 
 
 class CategoryView:
-    table = "category"
+    labels = ["ID", "NAME"]
 
     def __init__(self, components: dict[str, any]) -> None:
         self.components = components
-        self.model = components.get("category")
         self.controller = components.get("category_ctrl")(self.components)
 
     def new_category(self):
@@ -17,18 +17,20 @@ class CategoryView:
         if new_id:
             print(f"Added category: {category_name} with id: {new_id}")
 
-    def get_all_categories(self):
-        categories = self.controller.read()
-        "{'id': 1, 'name': 'test'}"
-        return [categories[key] for key in categories]
-
     def view_categories(self):
-        categories = self.controller.read(self.table)
-        for attr in categories:
-            print(f"{attr['id']}) {attr['name']}")
+        print(tabulate(
+            self.controller.read_categories(),
+            headers=self.labels,
+            tablefmt="fancy_grid"
+        ))
 
     def edit_category(self):
-        pass
+        selected_id = int(input("Enter Category ID: "))
+        if self.controller.validate_category(selected_id):
+            new_name = input("New Name: ")
+            self.controller.update_category(selected_id, new_name)
 
     def remove_category(self):
-        pass
+        selected_id = int(input("Enter Category ID: "))
+        if self.controller.validate_category(selected_id):
+            self.controller.delete_category(selected_id)

@@ -1,7 +1,6 @@
 """
 Database module.
 """
-
 import sqlite3
 from typing import Dict, Any, List, Iterator, ContextManager
 from contextlib import contextmanager
@@ -42,8 +41,22 @@ class Database:
             cursor.execute(query, list(data.values()))
             return cursor.lastrowid
 
-    def read(self, table: str, conditions: dict[str, any] = None) -> list[dict[str, any]]:
+    """
+    SELECT exercise.id, exercise.name, category.name AS category_name
+    FROM tasks
+    INNER JOIN categories ON tasks.category_id = categories.id
+    WHERE categories.name = ? OR tasks.name = ?
+    """
+    join = {"exercise": ["id", "name"], "category": ["name"]}
+    query = ""
+    for table in join:
+        for field in join[table]:
+            print()
+
+    def read(self, table: str, join: dict[str, any] = None, conditions: dict[str, any] = None) -> list[dict[str, any]]:
         with self.connection_scope() as cursor:
+            if join:
+                query = f"SELECT {f', '.join(f'{table}.{value}' for value in join[table])}, "
             query = f"SELECT * FROM {table}"
             params = []
             if conditions:
