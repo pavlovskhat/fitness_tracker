@@ -10,7 +10,7 @@ class FitnessModel:
 		:param name: Unique name label.
 		:param _id: Primary key ID.
 		"""
-		self.name = name
+		self._name = name
 		self._id = _id
 
 	def set_id(self, new_id):
@@ -21,8 +21,14 @@ class FitnessModel:
 		"""
 		self._id = new_id
 
+	def get_id(self):
+		return self._id
+
+	def get_name(self):
+		return self._name
+
 	def __repr__(self):
 		"""
 		String representation of object.
 		"""
-		return f"({self._id}) {self.name}"
+		return f"({self._id}) {self._name}"

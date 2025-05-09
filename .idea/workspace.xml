@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b7f4578-db53-4ed3-8544-444bfcee2f43" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/config/fitness_tracker_db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/fitness_tracker_db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/controllers/category_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/controllers/category_ctrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/controllers/exercise_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/controllers/exercise_ctrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/controllers/fitness_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/controllers/fitness_ctrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/database/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/interface/category_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/interface/category_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/models/exercise.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/models/exercise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fitness_tracker/models/fitness_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fitness_tracker/models/fitness_model.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2vzYGzft881xLBDX4BWGoSM8fnr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/jclsm/PycharmProjects/test_space",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b7f4578-db53-4ed3-8544-444bfcee2f43" name="Changes" comment="" />
+      <created>1745149277868</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745149277868</updated>
+      <workItem from="1745149282313" duration="25549000" />
+      <workItem from="1746526594638" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
