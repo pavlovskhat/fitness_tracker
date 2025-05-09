@@ -2,32 +2,44 @@
 Exercise backend logic controller.
 """
 from typing import Any
+from fitness_tracker.controllers.fitness_ctrl import FitnessCtrl
 
 
-class ExerciseCtrl:
+class ExerciseCtrl(FitnessCtrl):
+    table = "exercise"
+    exercises = []
 
-    def __init__(self, database: Any, exercise_model: Any) -> None:
-        self.database = database
-        self.model = exercise_model
+    def __init__(self, components: dict[str, any]) -> None:
+        super().__init__(components)
+        self.model = components.get("exercise")
+        self.refresh_exercises()
 
     def create_exercise(self, name: str, category_id: int) -> int | None:
-        with self.database.connect() as db:
-            exercise = self.model(name, category_id)
-            context = {"name": name, "category_id": category_id}
-            new_id = db.create("exercise", context)
-            if new_id:
-                exercise.exercise_id = new_id
-                return new_id
-            return None
+        new_id = super().create_request({
+                "name": name,
+                "category_id": category_id
+            })
+        if new_id:
+            self.refresh_exercises()
+            return new_id
+        return None
 
-    def update_exercise(
-            self,
-            data: dict[str, any],
-            conditions: dict[str, any]
-    ) -> int:
-        with self.database.connect() as db:
-            return db.update("exercise", data, conditions)
+    def refresh_exercises(self):
+        self.exercises.clear()
+        if super().read_request(self.table):
+            self.exercises = [
+                self.model(
+                    row["name"], row["category_id"], row["id"]
+                ) for row in super().read_request(self.table)
+            ]
 
-    def delete_exercise(self, conditions: dict[str, any]) -> int:
-        with self.database.connect() as db:
-            return db.delete("exercise", conditions)
+    def read_exercises(self):
+        return [
+            [exercise.get_id(), exercise.get_name()]
+            for exercise in self.exercises
+        ]
+
+    def validate_exercise(self, selected_id):
+        return selected_id in [exercise.get_id() for exercise in self.exercises]
+
+    def update_category(self, exercise_id, new_name):
