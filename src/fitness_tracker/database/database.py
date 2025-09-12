@@ -41,22 +41,25 @@ class Database:
             cursor.execute(query, list(data.values()))
             return cursor.lastrowid
 
-    """
-    SELECT exercise.id, exercise.name, category.name AS category_name
-    FROM tasks
-    INNER JOIN categories ON tasks.category_id = categories.id
-    WHERE categories.name = ? OR tasks.name = ?
-    """
-    join = {"exercise": ["id", "name"], "category": ["name"]}
-    query = ""
-    for table in join:
-        for field in join[table]:
-            print()
-
-    def read(self, table: str, join: dict[str, any] = None, conditions: dict[str, any] = None) -> list[dict[str, any]]:
+    def join_read(self, table_a: str, table_b: str) -> list[dict[str, any]]:
         with self.connection_scope() as cursor:
-            if join:
-                query = f"SELECT {f', '.join(f'{table}.{value}' for value in join[table])}, "
+            query = f"""
+            SELECT {table_a}.name, {table_b}.name AS title
+            FROM {table_a}
+            INNER JOIN {table_b} ON {table_b}.id = {table_a}.category_id
+            """
+            try: 
+                cursor.execute(query)
+                columns = [desc[0] for desc in cursor.description]
+                rows = cursor.fetchall()
+                return [dict(zip(columns, row)) for row in rows]
+            except sqlite3.Error as e:
+                print(f"Failed to read from tables '{table_a}' and '{table_b}'. Error: {e}")
+                return []
+
+
+    def read(self, table: str, conditions: dict[str, any] = None) -> list[dict[str, any]]:
+        with self.connection_scope() as cursor:
             query = f"SELECT * FROM {table}"
             params = []
             if conditions:

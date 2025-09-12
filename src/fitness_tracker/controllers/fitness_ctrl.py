@@ -18,6 +18,9 @@ class FitnessCtrl:
 
 	def read_request(self, table: str) -> list[dict[str, any]]:
 		return self.database.read(table)
+	
+	def join_read_request(self, table_a: str, table_b: str) -> list[dict[str, any]]
+		return self.database.join_read(table_a, table_b)
 
 	def update_request(self, table, category: any) -> int:
 		return self.database.update(
