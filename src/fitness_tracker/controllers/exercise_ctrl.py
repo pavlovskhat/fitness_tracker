@@ -26,10 +26,10 @@ class ExerciseCtrl(FitnessCtrl):
 
     def refresh_exercises(self):
         self.exercises.clear()
-        if super().read_request(self.table):
+        if super().join_read_request(self.table):
             self.exercises = [
                 self.model(
-                    row["name"], row["category_id"], row["id"]
+                    row["name"], row["title"], row["id"]
                 ) for row in super().read_request(self.table)
             ]
 
@@ -43,3 +43,4 @@ class ExerciseCtrl(FitnessCtrl):
         return selected_id in [exercise.get_id() for exercise in self.exercises]
 
     def update_category(self, exercise_id, new_name):
+        pass
